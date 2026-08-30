@@ -206,6 +206,17 @@
                             </li>
                         </ul>
                     </div>
+                    <script>
+                    document.querySelectorAll('.p_school_teacherCard[data-micromodal-trigger]').forEach(function(el){
+                      el.addEventListener('click', function(){
+                        MicroModal.show(el.getAttribute('data-micromodal-trigger'), {
+                          disableScroll: true,
+                          awaitOpenAnimation: false,
+                          awaitCloseAnimation: false,
+                        });
+                      });
+                    });
+                    </script>
                     <?php endif; ?>
                     <?php if(have_rows('access')): ?>
                     <div class="p_school_accsess mb5">

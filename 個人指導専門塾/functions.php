@@ -13,7 +13,7 @@ add_theme_support('post-thumbnails');
 function add_styles() {
 	$css_directory = get_template_directory_uri().'/assets/scss/';
 	$css_page_directory = $css_directory . 'page/';
-	$css_version = '1.1.1';//ここの数値を変更すればバージョンが更新できる
+	$css_version = '1.1.2-school-preview';//ここの数値を変更すればバージョンが更新できる（キャッシュ強制更新用）
 	wp_enqueue_style( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
 	
 	wp_enqueue_style('reset_style', $css_directory.'style.css', "", $css_version);
