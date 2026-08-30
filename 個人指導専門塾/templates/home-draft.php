@@ -5,8 +5,16 @@ Template Name: HOME(2026 Preview)
 // 【確認用ドラフト】docs/top-page-renewal-spec.md の内容を反映した非公開プレビュー用テンプレート。
 // お客様承認後、この内容を templates/home.php に反映し、本ファイルは削除する。
 ?>
-<?php 
-  $imgUri = get_theme_file_uri() . "/assets/image/"; 
+<?php if ( post_password_required() ) : ?>
+  <div class="l_wrapper">
+    <div class="l_inner" style="padding: 8rem 0;">
+      <?php echo get_the_password_form(); ?>
+    </div>
+  </div>
+  <?php get_footer(); ?>
+<?php return; endif; ?>
+<?php
+  $imgUri = get_theme_file_uri() . "/assets/image/";
 ?>
 <div class="l_wrapper js-wrapper">
 <?php /*
