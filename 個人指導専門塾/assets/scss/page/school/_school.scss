@@ -145,4 +145,318 @@
             }
         }
     }
+    // 【確認用】URLパラメータで出し分けする「担当講師紹介」「教室内の様子」セクション
+    &_teacherList{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+        @include g.mq(md){
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+    }
+    &_teacherCard{
+        $this: &;
+        display: block;
+        overflow: hidden;
+        width: 100%;
+        padding: 0;
+        border: none;
+        border-radius: 1.6rem;
+        background-color: g.$colorWhite;
+        cursor: pointer;
+        font-family: inherit;
+        text-align: center;
+        &_photo{
+            display: block;
+            margin-bottom: 1.2rem;
+            img{
+                display: block;
+                width: 100%;
+                aspect-ratio: 4 / 3;
+                object-fit: cover;
+            }
+        }
+        &_name{
+            display: block;
+            padding: 0 0.8rem;
+            color: g.$colorBlack;
+            font-size: 1.4rem;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+        &_kana{
+            display: block;
+            padding: 0.2rem 0.8rem 0.8rem;
+            color: #999;
+            font-size: 1.1rem;
+        }
+        &_more{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0 0.8rem 1rem;
+            color: g.$colorMain;
+            font-size: 1.1rem;
+            font-weight: 700;
+            opacity: 0;
+            transition: opacity 0.2s;
+            &::before{
+                content: "";
+                display: inline-block;
+                width: 1.6rem;
+                height: 2px;
+                background-color: g.$colorMain;
+            }
+        }
+        &:hover{
+            #{$this}_name{
+                color: g.$colorMain;
+            }
+            #{$this}_more{
+                opacity: 1;
+            }
+        }
+    }
+    &_gallery{
+        &_list{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+            @include g.mq(md){
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2rem;
+            }
+        }
+        &_image{
+            overflow: hidden;
+            margin-bottom: 1rem;
+            border-radius: 1.2rem;
+            img{
+                display: block;
+                width: 100%;
+                aspect-ratio: 4 / 3;
+                object-fit: cover;
+            }
+        }
+        &_title{
+            margin-bottom: 0.4rem;
+            color: g.$colorBlack;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        &_text{
+            color: g.$colorBlack;
+            font-size: 1.2rem;
+            line-height: 1.6em;
+        }
+    }
+}
+.c_teacherModal{
+    display: none;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    &.is-open{
+        display: block;
+    }
+    &_overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.6);
+    }
+    &_container{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        overflow-y: auto;
+        width: calc(100% - 4rem);
+        max-width: 44rem;
+        max-height: 85vh;
+        padding: 0;
+        border-radius: 1.6rem;
+        background-color: g.$colorWhite;
+        @include g.mq(md){
+            display: flex;
+            align-items: flex-start;
+            overflow: hidden;
+            width: calc(100% - 8rem);
+            max-width: 90rem;
+            max-height: 80vh;
+        }
+    }
+    &_close{
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 1;
+        width: 3.2rem;
+        height: 3.2rem;
+        border: none;
+        border-radius: 50%;
+        background-color: g.$colorWhite;
+        color: g.$colorBlack;
+        font-size: 1.8rem;
+        line-height: 1;
+        cursor: pointer;
+    }
+    &_photo{
+        display: block;
+        margin-bottom: 1.6rem;
+        img{
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+        @include g.mq(md){
+            flex: 0 0 auto;
+            width: 20rem;
+            margin: 2.4rem 0 2.4rem 2.4rem;
+            img{
+                aspect-ratio: 1 / 1;
+                border-radius: 1.2rem;
+            }
+        }
+    }
+    &_body{
+        padding: 0 2rem 2rem;
+        text-align: center;
+        @include g.mq(md){
+            flex: 1;
+            overflow-y: auto;
+            padding: 2.4rem 3.2rem;
+            text-align: left;
+        }
+    }
+    &_message{
+        margin-bottom: 1.2rem;
+        color: g.$colorMain;
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-align: center;
+        @include g.mq(md){
+            font-size: 1.6rem;
+            text-align: left;
+        }
+    }
+    &_name{
+        margin-bottom: 0.8rem;
+        color: g.$colorBlack;
+        font-size: 2rem;
+        font-weight: 700;
+        text-align: center;
+        @include g.mq(md){
+            font-size: 2.4rem;
+            text-align: left;
+        }
+        span{
+            margin-left: 0.4rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+            @include g.mq(md){
+                font-size: 1.4rem;
+            }
+        }
+    }
+    &_subject{
+        display: inline-block;
+        margin-bottom: 1.6rem;
+        padding: 0.4rem 1rem;
+        border-radius: 100vh;
+        background-color: #FCE9ED;
+        color: g.$colorMain;
+        font-size: 1.2rem;
+        font-weight: 700;
+        @include g.mq(md){
+            font-size: 1.3rem;
+        }
+    }
+    &_profileList{
+        margin-bottom: 1.6rem;
+        border-top: 1px solid #ECECEC;
+        &_item{
+            display: flex;
+            gap: 1.2rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #ECECEC;
+            text-align: left;
+            dt{
+                flex: 0 0 9rem;
+                color: #999;
+                font-size: 1.2rem;
+                font-weight: 700;
+                @include g.mq(md){
+                    font-size: 1.4rem;
+                }
+            }
+            dd{
+                color: g.$colorBlack;
+                font-size: 1.2rem;
+                @include g.mq(md){
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+    &_sectionTitle{
+        margin-bottom: 0.8rem;
+        color: g.$colorBlack;
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-align: left;
+    }
+    &_interview{
+        &_item{
+            margin-bottom: 1.6rem;
+            text-align: left;
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+        &_q{
+            margin-bottom: 0.6rem;
+            padding-left: 1rem;
+            border-left: 3px solid g.$colorMain;
+            color: g.$colorMain;
+            font-size: 1.3rem;
+            font-weight: 700;
+            line-height: 1.5em;
+            @include g.mq(md){
+                font-size: 1.5rem;
+            }
+        }
+        &_a{
+            color: g.$colorBlack;
+            font-size: 1.2rem;
+            line-height: 1.8em;
+            @include g.mq(md){
+                font-size: 1.4rem;
+            }
+        }
+    }
+    &_bottomClose{
+        display: block;
+        width: 100%;
+        margin-top: 2rem;
+        padding: 1.2rem;
+        border: 1px solid g.$colorBlack;
+        border-radius: 100vh;
+        background-color: g.$colorWhite;
+        color: g.$colorBlack;
+        font-size: 1.3rem;
+        font-weight: 700;
+        cursor: pointer;
+        @include g.mq(md){
+            display: none;
+        }
+    }
 }

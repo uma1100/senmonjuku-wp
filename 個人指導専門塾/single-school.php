@@ -1,5 +1,10 @@
 <?php get_header(); ?>
-<?php $imgUri = get_theme_file_uri() . "/assets/image/"; ?>
+<?php
+  $imgUri = get_theme_file_uri() . "/assets/image/";
+  // 【確認用】URLに ?school_preview=0c82b980 が付いている時だけ、担当講師紹介・教室内の様子セクションを表示する。
+  // お客様承認後、この分岐を外して常時表示にする。
+  $is_school_preview = isset($_GET['school_preview']) && $_GET['school_preview'] === '0c82b980';
+?>
 <div class="l_wrapper">
     <div class="c_single">
         <?php get_template_part( 'parts/subPageHeader' ); ?>
@@ -56,6 +61,152 @@
                             </dl>
                         </div>
                     </div>
+                    <?php if ($is_school_preview): ?>
+                    <?php
+                        $current_school_id = get_the_ID();
+                        $teacher_args = array(
+                            'post_type' => 'teacher',
+                            'post_status' => 'publish', // 非公開の講師は除外
+                            'posts_per_page' => -1,
+                            'meta_query' => array(
+                                array(
+                                    'key' => 'classroom_url',
+                                    'value' => '"' . $current_school_id . '"',
+                                    'compare' => 'LIKE',
+                                ),
+                            ),
+                        );
+                        $teacher_query = new WP_Query($teacher_args);
+                        if ($teacher_query->have_posts()):
+                    ?>
+                    <div class="p_school_teacherSection mb5">
+                        <div class="e_heading-wrap mb2">
+                            <h2 class="e_heading _pink _subpage">
+                                <span class="e_heading_jp">担当講師紹介</span>
+                                <span class="e_heading_en">TEACHER</span>
+                            </h2>
+                        </div>
+                        <ul class="p_school_teacherList">
+                            <?php while ($teacher_query->have_posts()): $teacher_query->the_post(); ?>
+                            <li>
+                                <button type="button" class="p_school_teacherCard" data-micromodal-trigger="teacher-modal-<?php the_ID(); ?>">
+                                    <span class="p_school_teacherCard_photo">
+                                        <?php if (has_post_thumbnail()) : ?>
+                                            <?php the_post_thumbnail(); ?>
+                                        <?php else: ?>
+                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/image/common/thumbnail_noimage.jpg" alt="">
+                                        <?php endif; ?>
+                                    </span>
+                                    <span class="p_school_teacherCard_name"><?php the_title(); ?></span>
+                                    <?php if (get_field('name_kana')): ?>
+                                    <span class="p_school_teacherCard_kana"><?php the_field('name_kana'); ?></span>
+                                    <?php endif; ?>
+                                    <span class="p_school_teacherCard_more">詳しく見る</span>
+                                </button>
+                            </li>
+                            <?php endwhile; ?>
+                        </ul>
+                        <?php
+                            // モーダルの中身は上のループとは別に、投稿データを取り直して出力する
+                            $teacher_query->rewind_posts();
+                            while ($teacher_query->have_posts()): $teacher_query->the_post();
+                        ?>
+                        <div class="c_teacherModal" id="teacher-modal-<?php the_ID(); ?>" aria-hidden="true">
+                            <div class="c_teacherModal_overlay" data-micromodal-close></div>
+                            <div class="c_teacherModal_container" role="dialog" aria-modal="true">
+                                <button type="button" class="c_teacherModal_close" data-micromodal-close aria-label="閉じる">×</button>
+                                <div class="c_teacherModal_photo">
+                                    <?php if (has_post_thumbnail()) : ?>
+                                        <?php the_post_thumbnail(); ?>
+                                    <?php else: ?>
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/image/common/thumbnail_noimage.jpg" alt="">
+                                    <?php endif; ?>
+                                </div>
+                                <div class="c_teacherModal_body">
+                                    <?php if (get_field('message')): ?>
+                                    <p class="c_teacherModal_message"><?php the_field('message'); ?></p>
+                                    <?php endif; ?>
+                                    <h3 class="c_teacherModal_name">
+                                        <?php the_title(); ?>
+                                        <?php if (get_field('name_kana')): ?>
+                                        <span>（<?php the_field('name_kana'); ?>）</span>
+                                        <?php endif; ?>
+                                    </h3>
+                                    <?php if (get_field('profile_favoriteSubject')): ?>
+                                    <p class="c_teacherModal_subject">得意科目：<?php the_field('profile_favoriteSubject'); ?></p>
+                                    <?php endif; ?>
+                                    <?php if (get_field('profile_motto') || get_field('profile_club') || get_field('profile_hobby')): ?>
+                                    <dl class="c_teacherModal_profileList">
+                                        <?php if (get_field('profile_motto')): ?>
+                                        <div class="c_teacherModal_profileList_item">
+                                            <dt>座右の銘</dt>
+                                            <dd><?php the_field('profile_motto'); ?></dd>
+                                        </div>
+                                        <?php endif; ?>
+                                        <?php if (get_field('profile_club')): ?>
+                                        <div class="c_teacherModal_profileList_item">
+                                            <dt>学生時代の部活</dt>
+                                            <dd><?php the_field('profile_club'); ?></dd>
+                                        </div>
+                                        <?php endif; ?>
+                                        <?php if (get_field('profile_hobby')): ?>
+                                        <div class="c_teacherModal_profileList_item">
+                                            <dt>趣味</dt>
+                                            <dd><?php the_field('profile_hobby'); ?></dd>
+                                        </div>
+                                        <?php endif; ?>
+                                    </dl>
+                                    <?php endif; ?>
+                                    <?php if (get_the_content()): ?>
+                                    <div class="c_teacherModal_interview">
+                                        <?php the_content(); ?>
+                                    </div>
+                                    <?php endif; ?>
+                                    <button type="button" class="c_teacherModal_bottomClose" data-micromodal-close>閉じる</button>
+                                </div>
+                            </div>
+                        </div>
+                        <?php endwhile; ?>
+                    </div>
+                    <?php endif; wp_reset_postdata(); ?>
+                    <?php
+                        // 【仮】教室内の様子(写真+キャプション)はACFフィールド未追加のため、プレースホルダーで表示。
+                        // フィールド追加後、have_rows()等で置き換える。
+                        $gallery_placeholder_image = has_post_thumbnail()
+                            ? get_the_post_thumbnail_url()
+                            : get_template_directory_uri() . '/assets/image/school/school_no-image.png';
+                    ?>
+                    <div class="p_school_gallery mb5">
+                        <div class="e_heading-wrap mb2">
+                            <h2 class="e_heading _pink _subpage">
+                                <span class="e_heading_jp">教室内の様子</span>
+                                <span class="e_heading_en">GALLERY</span>
+                            </h2>
+                        </div>
+                        <ul class="p_school_gallery_list">
+                            <li class="p_school_gallery_item">
+                                <div class="p_school_gallery_image"><img src="<?php echo esc_url($gallery_placeholder_image); ?>" alt=""></div>
+                                <p class="p_school_gallery_title">自習スペース</p>
+                                <p class="p_school_gallery_text">集中できる個別ブースを完備。静かな環境で、いつでも自習に取り組めます。</p>
+                            </li>
+                            <li class="p_school_gallery_item">
+                                <div class="p_school_gallery_image"><img src="<?php echo esc_url($gallery_placeholder_image); ?>" alt=""></div>
+                                <p class="p_school_gallery_title">授業の様子</p>
+                                <p class="p_school_gallery_text">講師が隣に寄り添い、対話を大切にした1対1の授業で理解を深めます。</p>
+                            </li>
+                            <li class="p_school_gallery_item">
+                                <div class="p_school_gallery_image"><img src="<?php echo esc_url($gallery_placeholder_image); ?>" alt=""></div>
+                                <p class="p_school_gallery_title">教室内</p>
+                                <p class="p_school_gallery_text">明るく清潔感のある教室で、気持ちよく学習に取り組めます。</p>
+                            </li>
+                            <li class="p_school_gallery_item">
+                                <div class="p_school_gallery_image"><img src="<?php echo esc_url($gallery_placeholder_image); ?>" alt=""></div>
+                                <p class="p_school_gallery_title">学習環境・教材</p>
+                                <p class="p_school_gallery_text">最新の教材や過去問、定期テスト対策プリントなどを豊富に用意しています。</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <?php endif; ?>
                     <?php if(have_rows('access')): ?>
                     <div class="p_school_accsess mb5">
                         <div class="e_heading-wrap mb2">
