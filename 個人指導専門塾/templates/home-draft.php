@@ -105,7 +105,7 @@ Template Name: HOME(2026 Preview)
           <ul class="p_message_stats">
             <li class="p_message_stats_item">
               <span class="p_message_stats_icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l8 4-8 4-8-4 8-4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M6 11v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
               </span>
               <p class="p_message_stats_label">指導実績</p>
               <p class="p_message_stats_number"><span>25</span>年</p>
@@ -113,7 +113,7 @@ Template Name: HOME(2026 Preview)
             </li>
             <li class="p_message_stats_item">
               <span class="p_message_stats_icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l9 4.5-9 4.5-9-4.5L12 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 10.5V16c0 1.4 2.2 3 5 3s5-1.6 5-3v-5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg>
               </span>
               <p class="p_message_stats_label">卒業生</p>
               <p class="p_message_stats_number"><span>2,350</span>名</p>
@@ -121,14 +121,28 @@ Template Name: HOME(2026 Preview)
             </li>
             <li class="p_message_stats_item">
               <span class="p_message_stats_icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 19h16M6 19v-5l4-3 4 3v-8l4-2v15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
               </span>
               <p class="p_message_stats_label">成績アップ率</p>
               <p class="p_message_stats_number"><span>92</span>%</p>
               <p class="p_message_stats_note">成績向上を実現！</p>
             </li>
           </ul>
-          <!-- メディア掲載実績は既存の p_media セクション(スライダー)をそのまま維持するため、ここでは重複させない -->
+          <div class="p_message_media">
+            <p class="p_message_media_title">メディア掲載実績</p>
+            <p class="p_message_media_note">TVや雑誌など複数のメディアでご紹介いただきました</p>
+            <ul class="p_message_mediaGrid _cover">
+              <?php for ($i = 1; $i <= 10; $i++): $num = str_pad($i, 2, '0', STR_PAD_LEFT); ?>
+              <li class="p_message_mediaGrid_item _image">
+                <picture>
+                  <source srcset="<?php echo $imgUri; ?>home/media_<?php echo $num; ?>.webp" type="image/webp">
+                  <img src="<?php echo $imgUri; ?>home/media_<?php echo $num; ?>.jpg" alt="">
+                </picture>
+              </li>
+              <?php endfor; ?>
+            </ul>
+          </div>
+          <!-- メディア掲載実績のスライダー(下部の既存p_mediaセクション)も削除せずそのまま維持しています -->
         </div>
       </div>
     </div>
@@ -170,7 +184,7 @@ Template Name: HOME(2026 Preview)
     </div>
   </div><!-- /p_news -->
   
-  <div class="p_course" id="course">
+  <div class="p_course _renewal" id="course">
     <div class="p_course_top js-bgChange">
       <div class="l_inner">
         <div class="e_heading-wrap mb2">
@@ -197,19 +211,19 @@ Template Name: HOME(2026 Preview)
                 <h4>中学生コース</h4>
                 <dl class="p_courseTabContent_list">
                   <div class="p_courseTabContent_list_item">
-                    <dt><span class="p_courseTabContent_list_icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="3.2" stroke="currentColor" stroke-width="1.5"/><path d="M5 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>対象者</dt>
+                    <dt><span class="p_courseTabContent_list_icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>対象者</dt>
                     <dd>定期テストで伸び悩む中学生<br>勉強のやり方が分からない生徒</dd>
                   </div>
                   <div class="p_courseTabContent_list_item">
-                    <dt><span class="p_courseTabContent_list_icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="5" width="16" height="14" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 3v4M16 3v4M4 10h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>指導形態</dt>
+                    <dt><span class="p_courseTabContent_list_icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></svg></span>指導形態</dt>
                     <dd>1対1・1対2の個別指導<br>対面中心・オンライン対応可</dd>
                   </div>
                   <div class="p_courseTabContent_list_item">
-                    <dt><span class="p_courseTabContent_list_icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.5"/><path d="M9 8h4.5a2 2 0 010 4H10m0 0h4.5M9 16h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>料金の目安</dt>
+                    <dt><span class="p_courseTabContent_list_icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg></span>料金の目安</dt>
                     <dd>月謝は学年・回数に応じてご案内<br>まずは無料体験でご相談ください</dd>
                   </div>
                   <div class="p_courseTabContent_list_item">
-                    <dt><span class="p_courseTabContent_list_icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5l2.4 5 5.4.6-4 3.8 1 5.4-4.8-2.6-4.8 2.6 1-5.4-4-3.8 5.4-.6L12 3.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span>特徴・メリット</dt>
+                    <dt><span class="p_courseTabContent_list_icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg></span>特徴・メリット</dt>
                     <dd>一人ひとりに合わせた個別カリキュラムで、正しい勉強法・テスト対策・学習習慣づくりをサポート。内申対策や受験準備にも対応。</dd>
                   </div>
                 </dl>
@@ -229,19 +243,19 @@ Template Name: HOME(2026 Preview)
                 <h4>小学生コース</h4>
                 <dl class="p_courseTabContent_list">
                   <div class="p_courseTabContent_list_item">
-                    <dt><span class="p_courseTabContent_list_icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="3.2" stroke="currentColor" stroke-width="1.5"/><path d="M5 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>対象者</dt>
+                    <dt><span class="p_courseTabContent_list_icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>対象者</dt>
                     <dd>勉強習慣をつけたい小学生<br>基礎学力や理解力を伸ばしたいご家庭</dd>
                   </div>
                   <div class="p_courseTabContent_list_item">
-                    <dt><span class="p_courseTabContent_list_icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="5" width="16" height="14" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 3v4M16 3v4M4 10h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>指導形態</dt>
+                    <dt><span class="p_courseTabContent_list_icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></svg></span>指導形態</dt>
                     <dd>1対1・1対2の個別指導<br>対面中心・オンライン対応可</dd>
                   </div>
                   <div class="p_courseTabContent_list_item">
-                    <dt><span class="p_courseTabContent_list_icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.5"/><path d="M9 8h4.5a2 2 0 010 4H10m0 0h4.5M9 16h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>料金の目安</dt>
+                    <dt><span class="p_courseTabContent_list_icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg></span>料金の目安</dt>
                     <dd>月謝は学年・回数に応じてご相談ください</dd>
                   </div>
                   <div class="p_courseTabContent_list_item">
-                    <dt><span class="p_courseTabContent_list_icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5l2.4 5 5.4.6-4 3.8 1 5.4-4.8-2.6-4.8 2.6 1-5.4-4-3.8 5.4-.6L12 3.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span>特徴・メリット</dt>
+                    <dt><span class="p_courseTabContent_list_icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg></span>特徴・メリット</dt>
                     <dd>勉強のやり方を知ることで学習習慣づくりを重視。つまずきやすい単元を丁寧に指導し、自発的に正しい学び方を身につけます。</dd>
                   </div>
                 </dl>

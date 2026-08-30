@@ -293,31 +293,37 @@
 .p_message._renewal .p_message_text {
   margin-bottom: 1.6rem;
   line-height: 1.8em;
+  font-weight: 700;
 }
 @media screen and (min-width: 1024px) {
   .p_message._renewal .p_message_text {
     margin-bottom: 2.4rem;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
+  }
+}
+.p_message._renewal .p_message_catchCopy {
+  font-size: 2rem;
+  line-height: 1.6em;
+}
+@media screen and (min-width: 1024px) {
+  .p_message._renewal .p_message_catchCopy {
+    font-size: 4rem;
+    line-height: 1.75em;
   }
 }
 .p_message_lead {
   margin-bottom: 0.6rem;
   color: #FFFFFF;
   font-size: 1.4rem;
-  font-weight: 500;
+  font-weight: 700;
 }
 @media screen and (min-width: 1024px) {
   .p_message_lead {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
   }
 }
 .p_message_highlight {
-  margin-bottom: 2rem;
-}
-@media screen and (min-width: 1024px) {
-  .p_message_highlight {
-    margin-bottom: 3rem;
-  }
+  margin-bottom: 0.6rem;
 }
 .p_message_highlight span {
   display: inline-block;
@@ -340,10 +346,13 @@
     display: grid;
     grid-template-columns: 1fr 0.9fr;
     column-gap: 8rem;
-    align-items: center;
+    align-items: flex-start;
   }
 }
 .p_message_right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
   margin-top: 3.6rem;
 }
 @media screen and (min-width: 1024px) {
@@ -354,11 +363,11 @@
 .p_message_stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.8rem;
+  gap: 1.2rem;
 }
 @media screen and (min-width: 1024px) {
   .p_message_stats {
-    gap: 1.6rem;
+    gap: 2.4rem;
   }
 }
 .p_message_stats_item {
@@ -391,17 +400,18 @@
   height: 100%;
 }
 .p_message_stats_label {
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.6rem;
   color: #453E3E;
   font-size: 1.1rem;
   font-weight: 700;
 }
 @media screen and (min-width: 1024px) {
   .p_message_stats_label {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
   }
 }
 .p_message_stats_number {
+  margin-bottom: 0.6rem;
   color: #D5546A;
   font-weight: 700;
   line-height: 1.2em;
@@ -416,18 +426,55 @@
 }
 @media screen and (min-width: 1024px) {
   .p_message_stats_number {
-    font-size: 1.6rem;
+    font-size: 3.2rem;
   }
 }
 .p_message_stats_note {
-  margin-top: 0.2rem;
+  margin-top: 0;
   color: #453E3E;
   font-size: 1rem;
 }
 @media screen and (min-width: 1024px) {
   .p_message_stats_note {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
   }
+}
+.p_message_media {
+  padding: 2rem;
+  border-radius: 1.4rem;
+  background-color: #FFFFFF;
+}
+.p_message_media_title {
+  margin-bottom: 0.2rem;
+  color: #453E3E;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.p_message_media_note {
+  margin-bottom: 1.2rem;
+  color: #453E3E;
+  font-size: 1.1rem;
+}
+.p_message_mediaGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+}
+@media screen and (min-width: 1024px) {
+  .p_message_mediaGrid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+.p_message_mediaGrid_item {
+  overflow: hidden;
+  border-radius: 0.4rem;
+  aspect-ratio: 3/4;
+}
+.p_message_mediaGrid_item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .p_course .e_heading,
@@ -579,6 +626,9 @@
   }
 }
 .p_courseTabContent_list_item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   padding: 1.2rem 0;
   border-top: 1px solid rgba(69, 62, 62, 0.12);
 }
@@ -595,41 +645,42 @@
 .p_courseTabContent_list_item dt {
   display: flex;
   align-items: center;
-  margin-bottom: 0.4rem;
+  flex: 0 0 8.4rem;
+  margin-bottom: 0;
   font-size: 1.2rem;
   font-weight: 700;
 }
 @media screen and (min-width: 1024px) {
   .p_courseTabContent_list_item dt {
+    flex-basis: 10rem;
     font-size: 1.5rem;
   }
 }
 .p_courseTabContent_list_item dd {
+  flex: 1;
   font-size: 1.2rem;
   line-height: 1.6em;
   font-weight: 500;
 }
 @media screen and (min-width: 1024px) {
   .p_courseTabContent_list_item dd {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 }
 .p_courseTabContent_list_icon {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  width: 1.8rem;
-  height: 1.8rem;
-  margin-right: 0.6rem;
-}
-@media screen and (min-width: 1024px) {
-  .p_courseTabContent_list_icon {
-    width: 2.2rem;
-    height: 2.2rem;
-  }
+  width: 2.4rem;
+  height: 2.4rem;
+  margin-right: 0.8rem;
+  border-radius: 50%;
+  background-color: #FFFFFF;
 }
 .p_courseTabContent_list_icon svg {
-  width: 100%;
-  height: 100%;
+  width: 60%;
+  height: 60%;
 }
 @media screen and (min-width: 1024px) {
   .p_courseTabContent_image img {
@@ -650,6 +701,9 @@
     border: 1.2rem solid #D5546A;
     border-bottom: none;
   }
+}
+.p_courseTabContent._pink .p_courseTabContent_list_icon {
+  color: #D5546A;
 }
 @media screen and (min-width: 1024px) {
   .p_courseTabContent._pink .e_button a {
@@ -674,6 +728,9 @@
     border: 1.2rem solid #54BED6;
     border-bottom: none;
   }
+}
+.p_courseTabContent._blue .p_courseTabContent_list_icon {
+  color: #54BED6;
 }
 @media screen and (min-width: 1024px) {
   .p_courseTabContent._blue .e_button a {

@@ -137,6 +137,9 @@
             }
             &_list{
                 &_item{
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
                     padding: 1.2rem 0;
                     border-top: 1px solid rgba(69,62,62,0.12);
                     @include g.mq(lg){
@@ -150,35 +153,38 @@
                     dt{
                         display: flex;
                         align-items: center;
-                        margin-bottom: 0.4rem;
+                        flex: 0 0 8.4rem;
+                        margin-bottom: 0;
                         font-size: 1.2rem;
                         font-weight: 700;
                         @include g.mq(lg){
+                            flex-basis: 10rem;
                             font-size: 1.5rem;
                         }
                     }
                     dd{
+                        flex: 1;
                         font-size: 1.2rem;
                         line-height: 1.6em;
                         font-weight: 500;
                         @include g.mq(lg){
-                            font-size: 1.4rem;
+                            font-size: 1.6rem;
                         }
                     }
                 }
                 &_icon{
                     display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
                     flex-shrink: 0;
-                    width: 1.8rem;
-                    height: 1.8rem;
-                    margin-right: 0.6rem;
-                    @include g.mq(lg){
-                        width: 2.2rem;
-                        height: 2.2rem;
-                    }
+                    width: 2.4rem;
+                    height: 2.4rem;
+                    margin-right: 0.8rem;
+                    border-radius: 50%;
+                    background-color: g.$colorWhite;
                     svg{
-                        width: 100%;
-                        height: 100%;
+                        width: 60%;
+                        height: 60%;
                     }
                 }
             }
@@ -202,6 +208,9 @@
                         border: 1.2rem solid g.$colorMain;
                         border-bottom: none;
                     }
+                }
+                #{$this}_list_icon{
+                    color: g.$colorMain;
                 }
                 .e_button{
                     a{
@@ -228,6 +237,9 @@
                         border: 1.2rem solid #54BED6;
                         border-bottom: none;
                     }
+                }
+                #{$this}_list_icon{
+                    color: #54BED6;
                 }
                 .e_button{
                     a{

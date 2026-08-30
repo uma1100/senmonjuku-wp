@@ -66,25 +66,31 @@
     &._renewal &_text{
         margin-bottom: 1.6rem;
         line-height: 1.8em;
+        font-weight: 700;
         @include g.mq(lg){
             margin-bottom: 2.4rem;
-            font-size: 1.8rem;
+            font-size: 2.2rem;
+        }
+    }
+    &._renewal &_catchCopy{
+        font-size: 2rem;
+        line-height: 1.6em;
+        @include g.mq(lg){
+            font-size: 4rem;
+            line-height: 1.75em;
         }
     }
     &_lead{
         margin-bottom: 0.6rem;
         color: g.$colorWhite;
         font-size: 1.4rem;
-        font-weight: 500;
+        font-weight: 700;
         @include g.mq(lg){
-            font-size: 1.8rem;
+            font-size: 2.2rem;
         }
     }
     &_highlight{
-        margin-bottom: 2rem;
-        @include g.mq(lg){
-            margin-bottom: 3rem;
-        }
+        margin-bottom: 0.6rem;
         span{
             display: inline-block;
             padding: 0.8rem 1.6rem;
@@ -105,10 +111,13 @@
             display: grid;
             grid-template-columns: 1fr 0.9fr;
             column-gap: 8rem;
-            align-items: center;
+            align-items: flex-start;
         }
     }
     &_right{
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
         margin-top: 3.6rem;
         @include g.mq(lg){
             margin-top: 0;
@@ -117,9 +126,9 @@
     &_stats{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 0.8rem;
+        gap: 1.2rem;
         @include g.mq(lg){
-            gap: 1.6rem;
+            gap: 2.4rem;
         }
         &_item{
             padding: 1.2rem 0.6rem;
@@ -147,15 +156,16 @@
             }
         }
         &_label{
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.6rem;
             color: g.$colorBlack;
             font-size: 1.1rem;
             font-weight: 700;
             @include g.mq(lg){
-                font-size: 1.4rem;
+                font-size: 1.8rem;
             }
         }
         &_number{
+            margin-bottom: 0.6rem;
             color: g.$colorMain;
             font-weight: 700;
             line-height: 1.2em;
@@ -166,15 +176,50 @@
                 }
             }
             @include g.mq(lg){
-                font-size: 1.6rem;
+                font-size: 3.2rem;
             }
         }
         &_note{
-            margin-top: 0.2rem;
+            margin-top: 0;
             color: g.$colorBlack;
             font-size: 1rem;
             @include g.mq(lg){
-                font-size: 1.2rem;
+                font-size: 1.8rem;
+            }
+        }
+    }
+    &_media{
+        padding: 2rem;
+        border-radius: 1.4rem;
+        background-color: g.$colorWhite;
+        &_title{
+            margin-bottom: 0.2rem;
+            color: g.$colorBlack;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+        &_note{
+            margin-bottom: 1.2rem;
+            color: g.$colorBlack;
+            font-size: 1.1rem;
+        }
+    }
+    &_mediaGrid{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.8rem;
+        @include g.mq(lg){
+            grid-template-columns: repeat(6, 1fr);
+        }
+        &_item{
+            overflow: hidden;
+            border-radius: 0.4rem;
+            aspect-ratio: 3 / 4;
+            img{
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
             }
         }
     }
