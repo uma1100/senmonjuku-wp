@@ -158,7 +158,7 @@
                                     </dl>
                                     <?php endif; ?>
                                     <?php if (get_the_content()): ?>
-                                    <div class="c_teacherModal_interview">
+                                    <div class="c_teacherModal_interview c_singleContent_main">
                                         <?php the_content(); ?>
                                     </div>
                                     <?php endif; ?>
