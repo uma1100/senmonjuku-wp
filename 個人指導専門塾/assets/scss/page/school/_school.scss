@@ -413,6 +413,33 @@
     }
     &_interview{
         text-align: left;
+        &.c_singleContent_main{
+            h3{
+                margin-top: 1.6rem;
+                margin-bottom: 0.6rem;
+                padding-left: 1rem;
+                font-size: 1.3rem;
+                font-weight: 700;
+                line-height: 1.5em;
+                @include g.mq(md){
+                    margin-top: 2rem;
+                    font-size: 1.5rem;
+                }
+                &::before{
+                    width: 3px;
+                }
+            }
+            p{
+                margin-bottom: 1.2rem;
+                color: g.$colorBlack;
+                font-size: 1.2rem;
+                font-weight: 500;
+                line-height: 1.8em;
+                @include g.mq(md){
+                    font-size: 1.4rem;
+                }
+            }
+        }
     }
     &_bottomClose{
         display: block;

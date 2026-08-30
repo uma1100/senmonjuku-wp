@@ -447,6 +447,35 @@
 .c_teacherModal_interview {
   text-align: left;
 }
+.c_teacherModal_interview.c_singleContent_main h3 {
+  margin-top: 1.6rem;
+  margin-bottom: 0.6rem;
+  padding-left: 1rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.5em;
+}
+@media screen and (min-width: 768px) {
+  .c_teacherModal_interview.c_singleContent_main h3 {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+  }
+}
+.c_teacherModal_interview.c_singleContent_main h3::before {
+  width: 3px;
+}
+.c_teacherModal_interview.c_singleContent_main p {
+  margin-bottom: 1.2rem;
+  color: #453E3E;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.8em;
+}
+@media screen and (min-width: 768px) {
+  .c_teacherModal_interview.c_singleContent_main p {
+    font-size: 1.4rem;
+  }
+}
 .c_teacherModal_bottomClose {
   display: block;
   width: 100%;
