@@ -61,4 +61,121 @@
             font-size: 2.6rem;
         }
     }
+    // 【確認用ドラフト】_renewal修飾クラスが付いている場合のみ、MESSAGE刷新レイアウト用に文字サイズ・余白を調整。
+    // 本番の既存 .p_message_text (_renewal無し)には一切影響しない。
+    &._renewal &_text{
+        margin-bottom: 1.6rem;
+        line-height: 1.8em;
+        @include g.mq(lg){
+            margin-bottom: 2.4rem;
+            font-size: 1.8rem;
+        }
+    }
+    &_lead{
+        margin-bottom: 0.6rem;
+        color: g.$colorWhite;
+        font-size: 1.4rem;
+        font-weight: 500;
+        @include g.mq(lg){
+            font-size: 1.8rem;
+        }
+    }
+    &_highlight{
+        margin-bottom: 2rem;
+        @include g.mq(lg){
+            margin-bottom: 3rem;
+        }
+        span{
+            display: inline-block;
+            padding: 0.8rem 1.6rem;
+            border-radius: 0.4rem;
+            background-color: #df7196;
+            color: g.$colorWhite;
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1.6em;
+            @include g.mq(lg){
+                padding: 1.2rem 2.4rem;
+                font-size: 2.2rem;
+            }
+        }
+    }
+    &_layout{
+        @include g.mq(lg){
+            display: grid;
+            grid-template-columns: 1fr 0.9fr;
+            column-gap: 8rem;
+            align-items: center;
+        }
+    }
+    &_right{
+        margin-top: 3.6rem;
+        @include g.mq(lg){
+            margin-top: 0;
+        }
+    }
+    &_stats{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.8rem;
+        @include g.mq(lg){
+            gap: 1.6rem;
+        }
+        &_item{
+            padding: 1.2rem 0.6rem;
+            border-radius: 1rem;
+            background-color: g.$colorWhite;
+            text-align: center;
+            @include g.mq(lg){
+                padding: 2rem 1rem;
+                border-radius: 1.4rem;
+            }
+        }
+        &_icon{
+            display: inline-flex;
+            width: 2.4rem;
+            height: 2.4rem;
+            margin-bottom: 0.4rem;
+            color: g.$colorMain;
+            @include g.mq(lg){
+                width: 3.2rem;
+                height: 3.2rem;
+            }
+            svg{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        &_label{
+            margin-bottom: 0.2rem;
+            color: g.$colorBlack;
+            font-size: 1.1rem;
+            font-weight: 700;
+            @include g.mq(lg){
+                font-size: 1.4rem;
+            }
+        }
+        &_number{
+            color: g.$colorMain;
+            font-weight: 700;
+            line-height: 1.2em;
+            span{
+                font-size: 2.2rem;
+                @include g.mq(lg){
+                    font-size: 3.2rem;
+                }
+            }
+            @include g.mq(lg){
+                font-size: 1.6rem;
+            }
+        }
+        &_note{
+            margin-top: 0.2rem;
+            color: g.$colorBlack;
+            font-size: 1rem;
+            @include g.mq(lg){
+                font-size: 1.2rem;
+            }
+        }
+    }
 }

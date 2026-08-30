@@ -17,7 +17,7 @@ function add_styles() {
 	wp_enqueue_style( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
 	
 	wp_enqueue_style('reset_style', $css_directory.'style.css', "", $css_version);
-	if (is_front_page()) {
+	if (is_front_page() || is_page_template('templates/home-draft.php')) {
 		wp_enqueue_style('home_style', $css_page_directory. 'home/' . 'index.css', "", $css_version);
 	}
 	if (is_singular('school')) {
@@ -54,7 +54,7 @@ function add_scripts() {
 	wp_enqueue_script( 'micromodal', 'https://unpkg.com/micromodal/dist/micromodal.min.js', true);
 	wp_enqueue_script( 'main', $js_directory.'main.js', "", $js_version, true);
 	wp_enqueue_script( 'animation', $js_directory.'animation.js', "", $js_version, true);
-	if (is_front_page()) {
+	if (is_front_page() || is_page_template('templates/home-draft.php')) {
 		wp_enqueue_script( 'home', $js_directory.'home.js', "", $js_version, true);
 		wp_enqueue_script( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', true);
 		wp_enqueue_script( 'swiper-works', $js_directory.'swiper-works.js', "", $js_version, true);
