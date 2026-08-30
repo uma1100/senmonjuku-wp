@@ -1,0 +1,105 @@
+@use "../../global" as g;
+.p_voice{
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    @include g.mq(lg){
+        padding-top: 12rem;
+        padding-bottom: 12rem;
+    }
+    .l_xlCol2{
+        row-gap: 3.6rem;
+        @include g.mq(lg){
+            width: 128rem;
+            margin: 0 auto;
+            align-items: center;
+        }
+        &_left{
+            width: calc(var(--vw, 1vw) * 84);
+            margin: 0 auto;
+            @include g.mq(lg){
+                width: auto;
+                margin: 0 auto 0 0;
+            }
+        }
+        &_right{
+            @include g.mq(lg){
+                width: 50%;
+            }
+        }
+    }
+    &Slider{
+        position: relative;
+        margin-bottom: 2.4rem;
+        .swiper{
+            padding-bottom: 0.7rem;
+        }
+        @include g.mq(lg){
+            margin-bottom: 3rem;
+        }
+        .swiper-slide{
+            width: calc((var(--vw, 1vw) * 84) + 1.5rem);
+            padding: 0 0.75rem;
+            @include g.mq(lg){
+                width: 40rem;
+                padding: 0 1.3rem;
+            }
+        }
+        &_navigation{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: calc(var(--vw, 1vw) * 84);
+            margin: 2.4rem auto 0;
+            @include g.mq(lg){
+                width: calc(52.2rem - 2.6rem);
+            }
+            .swiper-button-next,
+            .swiper-button-prev {
+                position: static;
+                width: 7.6rem;
+                height: 4.4rem;
+                margin-top: 0;
+            }
+            .swiper-button-prev,
+            .swiper-rtl .swiper-button-next {
+                left: 1.5rem;
+                right: auto;
+            }
+            .swiper-button-prev:after,
+            .swiper-rtl .swiper-button-next:after,
+            .swiper-button-next:after,
+            .swiper-rtl .swiper-button-prev:after {
+                content: "";
+                display: inline-block;
+                width: 100%;//画像の横幅
+                height: 100%;//画像の縦幅
+                background-image: url(../../../image/home/voice_slider_arrow.svg);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+            .swiper-button-next:after,
+            .swiper-rtl .swiper-button-prev:after{
+                transform: rotate(180deg);
+            }
+            .swiper-pagination {
+                flex: 1;
+                position: static;
+                font-size: 1.6rem;
+                font-family: g.$font-en;
+                color:g.$colorMain;
+                @include g.mq(lg){
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+    .c_voiceList{
+        &_text{
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+        }
+    }
+}

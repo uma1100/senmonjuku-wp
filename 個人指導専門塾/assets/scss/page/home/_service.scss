@@ -1,0 +1,137 @@
+@use "../../global" as g;
+.p_service{
+    margin-bottom: 4.6rem;
+    @include g.mq(lg){
+        margin-bottom: 12rem;
+    }
+    &-wrap{
+        grid-template-columns: 1fr;
+        @include g.mq(lg){
+            grid-template-columns: 1fr auto;
+            grid-template-rows: auto 1fr auto;
+            column-gap: 5.5rem;
+        }
+    }
+    .e_heading{
+        grid-row: 1/2;
+    }
+    &List{
+        position: relative;
+        grid-template-columns: repeat(2,1fr);
+        grid-row: 3/4;
+        column-gap: 2rem;
+        row-gap: 2rem;
+        width: calc(var(--vw, 1vw) * 100);
+        margin-bottom: 1.4rem;
+        margin-left: -2rem;
+        padding: 2rem;
+        @include g.mq(lg){
+            grid-template-columns: repeat(3,1fr);
+            grid-column: 1/2;
+            grid-row: 2/3;
+            column-gap: 0;
+            row-gap: 4rem;
+            width: 100%;
+            margin-top: 5rem;
+            margin-bottom: 10rem;
+            margin-left: 0;
+            padding: 0;
+        }
+        &::before{
+            content: "";
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            background-image: url(../../../image/home/sm_home_service_bg.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.3;
+            @include g.mq(lg){
+                display: none;
+            }
+        }
+        &_item{
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            transform: translateY(2rem);
+            opacity: 0;
+            transition: opacity 0.5s, transform 0.5s;
+            @include g.mq(lg){
+                justify-content: flex-end;
+            }
+            &._visible{
+                transform: translateY(0);
+                opacity: 1;
+            }
+            p{
+                margin-top: 1rem;
+                font-size: 1rem;
+                line-height: 1.6em;
+                text-align: center;
+                @include g.mq(lg){
+                    margin-top: 1.4rem;
+                    font-size: 1.8rem;
+                }
+            }
+            img{
+                width: 10rem;
+                height: 10rem;
+                @include g.mq(lg){
+                    width: 15.6rem;
+                    height: 15.6rem;
+                }
+            }
+        }
+    }
+    &_image{
+        grid-row: 2/3;
+        width: calc(var(--vw, 1vw) * 100 - 2rem);
+        margin-top: 1.8rem;
+        margin-bottom: 1.8rem;
+        margin-right: -2rem;
+        @include g.mq(lg){
+            position: relative;
+            grid-column: 2/3;
+            grid-row: 1/5;
+            width: 89.4rem;
+            margin-top: 0;
+            margin-right: -12rem;
+            margin-bottom: 0;
+        }
+        &::before{
+            @include g.mq(lg){
+                content: "";
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                transform: translateX(-100%);
+                width: calc((var(--vw, 1vw) * 100) - 89.4rem);
+                height: 100%;
+                background-image: url(../../../image/home/lg_home_service_bg.jpg);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                opacity: 0.3;
+            }
+        }
+        img{
+            border-top-left-radius: 2rem;
+            border-bottom-left-radius: 2rem;
+        }
+    }
+    .e_button{
+        grid-row: 4/5;
+        @include g.mq(lg){
+            grid-row: 3/4;
+            justify-content: flex-end;
+        }
+    }
+}

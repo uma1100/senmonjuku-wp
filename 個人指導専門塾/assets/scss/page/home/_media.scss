@@ -1,0 +1,35 @@
+@use "../../global" as g;
+.p_media{
+    padding-top: 6rem;
+    @include g.mq(lg){
+        padding-top: 12rem;
+    }
+    .e_heading{
+        @include g.mq(lg){
+            text-align: center;
+        }
+    }
+    .e_heading_message{
+        @include g.mq(lg){
+            text-align: center;
+        }
+        br{
+            @include g.mq(lg){
+                display: none;
+            }
+        }
+    }
+    &Slider{
+        .swiper-wrapper{
+            -webkit-transition-timing-function:linear!important;
+            -o-transition-timing-function:linear!important;
+            transition-timing-function:linear!important;
+            .swiper-slide{
+                width: 9.3rem;
+                @include g.mq(lg){
+                    width: 25.6rem;
+                }
+            }
+        }
+    }
+}

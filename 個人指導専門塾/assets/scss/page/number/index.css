@@ -1,0 +1,579 @@
+@charset "UTF-8";
+.p_number {
+  padding-bottom: 6rem;
+}
+@media screen and (min-width: 1280px) {
+  .p_number {
+    padding-bottom: 12rem;
+  }
+}
+.p_number_firstMessage {
+  margin-bottom: 4.3rem;
+}
+@media screen and (min-width: 1280px) {
+  .p_number_firstMessage {
+    margin-bottom: 10rem;
+  }
+}
+.p_number_heading {
+  margin-bottom: 1.2rem;
+  font-size: 3.3rem;
+  line-height: 1.3em;
+  font-weight: 900;
+}
+@media screen and (min-width: 1280px) {
+  .p_number_heading {
+    margin-bottom: 2.8rem;
+    font-size: 10rem;
+  }
+}
+.p_number_description {
+  font-size: 1rem;
+}
+@media screen and (min-width: 1280px) {
+  .p_number_description {
+    font-size: 2.8rem;
+  }
+}
+.p_numberList {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 2rem;
+}
+@media screen and (min-width: 1280px) {
+  .p_numberList {
+    column-gap: 8rem;
+    row-gap: 6rem;
+  }
+}
+.p_numberList_item {
+  width: 100%;
+  padding-bottom: 1rem;
+  border-bottom: solid 0.4rem #453E3E;
+}
+@media screen and (min-width: 1280px) {
+  .p_numberList_item {
+    width: calc(50% - 4rem);
+  }
+}
+@media screen and (min-width: 1280px) {
+  .p_numberList_item._lg_wide {
+    width: 100%;
+  }
+}
+.p_numberList_heading {
+  margin-bottom: 1.2rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+@media screen and (min-width: 1280px) {
+  .p_numberList_heading {
+    margin-bottom: 7.2rem;
+    font-size: 4rem;
+  }
+}
+.p_numberList_heading::after {
+  content: attr(data-en);
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 1rem;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1;
+}
+@media screen and (min-width: 1280px) {
+  .p_numberList_heading::after {
+    font-size: 2rem;
+  }
+}
+.p_numberList_main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.p_numberList_icon {
+  width: 6.6rem;
+}
+@media screen and (min-width: 1280px) {
+  .p_numberList_icon {
+    width: 15.7rem;
+  }
+}
+.p_numberList_text {
+  display: flex;
+  align-items: flex-end;
+}
+.p_numberList_number {
+  font-size: 5.4rem;
+  line-height: 1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+@media screen and (min-width: 1280px) {
+  .p_numberList_number {
+    font-size: 13rem;
+  }
+}
+.p_numberList_number._small {
+  font-size: 2.3rem;
+}
+@media screen and (min-width: 1280px) {
+  .p_numberList_number._small {
+    font-size: 12rem;
+  }
+}
+.p_numberList_number._visible {
+  opacity: 1;
+}
+.p_numberList_unit {
+  display: inline-block;
+  margin-bottom: 0.2rem;
+  font-size: 3.2rem;
+  line-height: 1;
+}
+@media screen and (min-width: 1280px) {
+  .p_numberList_unit {
+    font-size: 7.7rem;
+  }
+}
+.p_numberList_unit._small {
+  font-size: 1.7rem;
+  margin-bottom: 0.1rem;
+}
+@media screen and (min-width: 1280px) {
+  .p_numberList_unit._small {
+    font-size: 7rem;
+  }
+}
+.p_numberListBarGraph {
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 1rem;
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListBarGraph {
+    column-gap: 2.6rem;
+  }
+}
+.p_numberListBarGraph_item {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  text-align: center;
+}
+.p_numberListBarGraph_number {
+  margin-bottom: 0.4rem;
+  font-size: 2.2rem;
+  line-height: 1;
+  letter-spacing: normal;
+}
+@media screen and (min-width: 1280px) and (min-width: 1280px) {
+  .p_numberListBarGraph_number {
+    margin-bottom: 1rem;
+    font-size: 5.2rem;
+  }
+}
+.p_numberListBarGraph_number::after {
+  content: "%";
+  margin-left: 0.2rem;
+  font-size: 1rem;
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListBarGraph_number::after {
+    margin-left: 0.4rem;
+    font-size: 2rem;
+  }
+}
+.p_numberListBarGraph_bar {
+  display: inline-block;
+  position: relative;
+  width: 5.1rem;
+  background-color: #453E3E;
+  transform: scaleY(0);
+  transform-origin: 100% 100%;
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListBarGraph_bar {
+    width: 12.2rem;
+  }
+}
+.p_numberListBarGraph_bar._first {
+  background-color: #E341C4;
+}
+.p_numberListBarGraph_bar._move {
+  animation: barGraphAnimation forwards 1s 1 ease-in-out;
+}
+.p_numberListBarGraph_bar[data-size="60"] {
+  height: 12.66rem;
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListBarGraph_bar[data-size="60"] {
+    height: 30rem;
+  }
+}
+.p_numberListBarGraph_bar[data-size="20"] {
+  height: 4.22rem;
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListBarGraph_bar[data-size="20"] {
+    height: 10rem;
+  }
+}
+.p_numberListBarGraph_bar[data-size="10"] {
+  height: 2.11rem;
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListBarGraph_bar[data-size="10"] {
+    height: 5rem;
+  }
+}
+.p_numberListBarGraph_bar[data-size="5"] {
+  height: 1.055rem;
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListBarGraph_bar[data-size="5"] {
+    height: 2.5rem;
+  }
+}
+@keyframes barGraphAnimation {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+.p_numberListBarGraph_title {
+  margin-top: 0.4rem;
+  font-size: 1rem;
+  letter-spacing: normal;
+  line-height: 1;
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListBarGraph_title {
+    margin-top: 0.8rem;
+    font-size: 2.1rem;
+  }
+}
+.p_numberListPieGraph {
+  position: relative;
+  width: 100%;
+}
+.p_numberListPieGraph_graph {
+  height: 16.4rem;
+  width: 16.4rem;
+  margin: 0 auto;
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListPieGraph_graph {
+    width: 39.2rem;
+    height: 39.2rem;
+  }
+}
+.p_numberListPieGraph_number {
+  position: absolute;
+  font-size: 2.4rem;
+  line-height: 1;
+  text-align: center;
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListPieGraph_number {
+    font-size: 5.9rem;
+  }
+}
+.p_numberListPieGraph_number::before {
+  content: attr(data-name);
+  display: inline-block;
+  margin-right: 0.2rem;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListPieGraph_number::before {
+    margin-right: 0.6rem;
+    font-size: 3rem;
+  }
+}
+.p_numberListPieGraph_number::after {
+  content: "%";
+}
+.p_numberListPieGraph_number[data-name=関東] {
+  bottom: 0;
+  right: 0;
+}
+@media screen and (min-width: 768px) {
+  .p_numberListPieGraph_number[data-name=関東] {
+    bottom: 0;
+    right: 4rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListPieGraph_number[data-name=関東] {
+    bottom: 0;
+    right: 0;
+  }
+}
+.p_numberListPieGraph_number[data-name=九州] {
+  top: 5.8rem;
+  left: -3.4rem;
+}
+@media screen and (min-width: 768px) {
+  .p_numberListPieGraph_number[data-name=九州] {
+    top: 8.6rem;
+    left: 2.2rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListPieGraph_number[data-name=九州] {
+    top: 17.2rem;
+    left: -8.3rem;
+  }
+}
+.p_numberListPieGraph_number[data-name=関西] {
+  top: 0;
+  left: -1.2rem;
+}
+@media screen and (min-width: 768px) {
+  .p_numberListPieGraph_number[data-name=関西] {
+    top: 0;
+    left: 3.6rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListPieGraph_number[data-name=関西] {
+    top: -1.9rem;
+    left: 0.1rem;
+  }
+}
+.p_numberListPieGraph_number[data-name=大卒] {
+  bottom: 0;
+  right: 0;
+}
+@media screen and (min-width: 768px) {
+  .p_numberListPieGraph_number[data-name=大卒] {
+    right: 4rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListPieGraph_number[data-name=大卒] {
+    right: 0;
+  }
+}
+.p_numberListPieGraph_number[data-name=高卒] {
+  top: 0;
+  left: -1.2rem;
+}
+@media screen and (min-width: 768px) {
+  .p_numberListPieGraph_number[data-name=高卒] {
+    top: 0;
+    left: 3.6rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListPieGraph_number[data-name=高卒] {
+    top: -1.9rem;
+    left: 0.1rem;
+  }
+}
+.p_numberListPieGraph_number[data-name=スーツ] {
+  top: 0;
+  right: 0;
+}
+.p_numberListPieGraph_number[data-name=スーツ]::before {
+  display: block;
+  margin-right: 0;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .p_numberListPieGraph_number[data-name=スーツ] {
+    top: 0;
+    right: 5rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListPieGraph_number[data-name=スーツ] {
+    top: -1rem;
+    right: 1rem;
+  }
+}
+.p_numberListPieGraph_number[data-name=カジュアル] {
+  right: 0;
+  bottom: 0;
+}
+.p_numberListPieGraph_number[data-name=カジュアル]::before {
+  display: block;
+  margin-right: 0;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .p_numberListPieGraph_number[data-name=カジュアル] {
+    right: 5rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListPieGraph_number[data-name=カジュアル] {
+    right: 0;
+  }
+}
+.p_numberListPieGraph_number[data-name=スマートカジュアル] {
+  top: 0.6rem;
+  left: -3.9rem;
+}
+.p_numberListPieGraph_number[data-name=スマートカジュアル]::before {
+  display: block;
+  margin-right: 0;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .p_numberListPieGraph_number[data-name=スマートカジュアル] {
+    top: 0;
+    left: 1.3rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListPieGraph_number[data-name=スマートカジュアル] {
+    top: 1rem;
+    left: -8.4rem;
+  }
+}
+.p_numberListPieGraph_name {
+  position: absolute;
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListPieGraph_name {
+    font-size: 3rem;
+  }
+}
+.p_numberListPieGraph_name#daisotsu {
+  top: 10.4rem;
+  left: 14.1rem;
+}
+@media screen and (min-width: 768px) {
+  .p_numberListPieGraph_name#daisotsu {
+    top: 9.7rem;
+    left: 20.2rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListPieGraph_name#daisotsu {
+    top: 22.9rem;
+    left: 37.2rem;
+  }
+}
+.p_numberListPieGraph_name#kousotsu {
+  top: 3.5rem;
+  left: 9.5rem;
+}
+@media screen and (min-width: 768px) {
+  .p_numberListPieGraph_name#kousotsu {
+    top: 3.4rem;
+    left: 14.4rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListPieGraph_name#kousotsu {
+    top: 7.5rem;
+    left: 22.8rem;
+  }
+}
+.p_numberListPieGraph_name#kanto {
+  top: 7.6rem;
+  left: 16.3rem;
+}
+@media screen and (min-width: 768px) {
+  .p_numberListPieGraph_name#kanto {
+    top: 7.6rem;
+    left: 21.5rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListPieGraph_name#kanto {
+    top: 7.5rem;
+    left: 22.8rem;
+  }
+}
+.p_numberListPieGraph_name#kyushu {
+  top: 9rem;
+  left: 7.6rem;
+}
+@media screen and (min-width: 768px) {
+  .p_numberListPieGraph_name#kyushu {
+    top: 9rem;
+    left: 12.5rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListPieGraph_name#kyushu {
+    top: 21.5rem;
+    left: 18.4rem;
+  }
+}
+.p_numberListPieGraph_name#kansai {
+  top: 3.5rem;
+  left: 9.5rem;
+}
+@media screen and (min-width: 768px) {
+  .p_numberListPieGraph_name#kansai {
+    top: 3.5rem;
+    left: 14.5rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListPieGraph_name#kansai {
+    top: 18.4rem;
+    left: 39.6rem;
+  }
+}
+.p_numberListPieGraph_name#suit {
+  top: 3.5rem;
+  left: 15rem;
+}
+@media screen and (min-width: 768px) {
+  .p_numberListPieGraph_name#suit {
+    top: 3.5rem;
+    left: 19.9rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListPieGraph_name#suit {
+    top: 8.2rem;
+    left: 36.3rem;
+  }
+}
+.p_numberListPieGraph_name#casual {
+  top: 8rem;
+  left: 15.2rem;
+}
+@media screen and (min-width: 768px) {
+  .p_numberListPieGraph_name#casual {
+    top: 8rem;
+    left: 20rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListPieGraph_name#casual {
+    top: 19.3rem;
+    left: 36.4rem;
+  }
+}
+.p_numberListPieGraph_name#smartcasual {
+  top: 6.8rem;
+  left: 7.1rem;
+  text-align: center;
+  line-height: 1.4em;
+}
+@media screen and (min-width: 768px) {
+  .p_numberListPieGraph_name#smartcasual {
+    top: 6.8rem;
+    left: 11.8rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .p_numberListPieGraph_name#smartcasual {
+    top: 15.7rem;
+    left: 16.7rem;
+  }
+}

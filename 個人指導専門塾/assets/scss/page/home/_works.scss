@@ -1,0 +1,15 @@
+@use "../../global" as g;
+.p_works{
+  padding-bottom: 4.5rem;
+  @include g.mq(lg){
+    padding-bottom: 10rem;
+  }
+  .c_worksSlider{
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+    @include g.mq(lg){
+        margin-top: 7.4rem;
+        margin-bottom: 4rem;
+    }
+  }
+}

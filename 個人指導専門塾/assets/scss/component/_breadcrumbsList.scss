@@ -1,0 +1,53 @@
+@use "../global/" as g;
+/* breadcrumbsList */
+.c_breadcrumbsList{
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0.6rem 3rem;
+  background-color: g.$colorMain;
+  @include g.mq(lg){
+    padding: 1rem 8rem 1.2rem;
+  }
+  &_item{
+    position: relative;
+    margin-right: 0.7rem;
+    padding-right: 1.6rem;
+    color: g.$colorWhite;
+    font-size: 1.4rem;
+    font-weight: 600;
+    @include g.mq(lg){
+      margin-right: 0.8rem;
+      padding-right: 2rem;
+      font-size: 1.6rem;
+    }
+    span{
+      color: g.$colorWhite;
+    }
+    &:last-of-type{
+      margin-right: 0;
+    }
+    &::after{
+      content: ">";
+      position: absolute;
+      top: -0.2rem;
+      right: 0;
+      color: g.$colorWhite;
+      @include g.mq(lg){
+        top: 0;
+      }
+    }
+    &:last-of-type::after{
+      display: none;
+    }
+    a{
+      @include g.mq(lg){
+        transition: opacity 0.3s ease;
+      }
+      &:hover{
+        @include g.mq(lg){
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

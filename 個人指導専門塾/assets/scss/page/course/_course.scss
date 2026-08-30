@@ -1,0 +1,25 @@
+@use "../../global" as g;
+.p_course{
+    width: 100%;
+    &::before{
+        @include g.mq(lg){
+            content: "";
+            display: inline-block;
+            position: fixed;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--mainColor);
+            opacity: 0.1;
+        }
+    }
+    &_inner{
+        width: 100%;
+        @include g.mq(lg){
+            width: 1280px;
+            margin: 0 auto;
+        }
+    }
+}

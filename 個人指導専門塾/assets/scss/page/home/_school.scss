@@ -1,0 +1,30 @@
+@use "../../global" as g;
+.p_school{
+    padding-bottom: 6rem;
+    background-color: g.$colorMain;
+    @include g.mq(lg){
+        padding-bottom: 12rem;
+    }
+    &_top{
+        margin-bottom: 6rem;
+        @include g.mq(lg){
+            margin-bottom: 12rem;
+        }
+    }
+    .e_heading_message{
+        @include g.mq(lg){
+            white-space: nowrap;
+        }
+        br{
+            @include g.mq(lg){
+                display: none;
+            }
+        }
+        span{
+            font-size: 3.2rem;
+            @include g.mq(lg){
+                font-size: 6rem;
+            }
+        }
+    }
+}

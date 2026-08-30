@@ -1,0 +1,54 @@
+@use "../../global" as g;
+.p_message{
+    padding-top: 4.8rem;
+    padding-bottom: 4.8rem;
+    @include g.mq(lg){
+        padding-top: 15rem;
+        padding-bottom: 8rem;
+        background-color: g.$colorWhite;
+    }
+    p{
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        font-size: 1.6rem;
+        text-align: center;
+        @include g.mq(lg){
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+            font-size: 3.2rem;
+        }
+        &:first-child{
+            margin-top: 0;
+            margin-bottom: 2rem;
+        }
+        &:last-child{
+            margin-bottom: 0;
+        }
+        &.color,
+        span.color{
+            color: var(--mainColor);
+        }
+    }
+    p.bg{
+        margin-bottom: 1.2rem;
+        margin-top: 0;
+        span{
+            display: inline-block;
+            padding: 0.8rem 2.4rem 0.9rem;
+            border-radius: 0.4rem;
+            color: g.$colorWhite;
+            font-size: 2.2rem;
+            background-color: var(--mainColor);
+            @include g.mq(lg){
+                font-size: 4.4rem;
+            }
+        }
+    }
+    span.big{
+        color:var(--mainColor);
+        font-size: 2.4rem;
+        @include g.mq(lg){
+            font-size: 4.8rem;
+        }
+    }
+}

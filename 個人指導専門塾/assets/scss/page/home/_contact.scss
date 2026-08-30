@@ -1,0 +1,16 @@
+@use "../../global" as g;
+.p_contact{
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background-color: g.$colorGray;
+    @include g.mq(lg){
+        padding-top: 12rem;
+        padding-bottom: 12rem;
+    }
+    .c_contactList{
+        margin-bottom: 1.2rem;
+        @include g.mq(lg){
+            margin-bottom: 4rem;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+@use "../global/" as g;
+/* categoryList */
+.c_categoryList{
+  $this: &;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  @include g.mq(lg){
+    gap: 1.2rem;
+  }
+  &_item{
+    a{
+      display: inline-block;
+      min-width: 9.2rem;
+      height: auto;
+      padding: 0.6rem 1.2rem 0.5rem;
+      border-radius: 100vh;
+      background-color: g.$colorMain;
+      color: g.$colorWhite;
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1;
+      text-align: center;
+      @include g.mq(lg){
+        min-width: 11.6rem;
+        padding: 0.6rem 1.4rem;
+        font-size: 1.4rem;
+      }
+    }
+  }
+}

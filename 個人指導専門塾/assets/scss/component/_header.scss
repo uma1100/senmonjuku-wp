@@ -1,0 +1,245 @@
+@use "../global/" as g;
+/* Header */
+.c_header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  height: 6rem;
+  transition: transform 0.5s ease;
+  @include g.mq(lg){
+    height: 10rem;
+  }
+  &_inner{
+    grid-template-columns: repeat(2,auto);
+    align-items: center;
+    position: relative;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    padding-left: 2rem;
+    background: rgb(255,255,255);
+    @include g.mq(lg){
+      grid-template-columns: auto 1fr auto;
+      padding: 0 8rem;
+    }
+  }
+  &_logo{
+    height: 2.6rem;
+    margin-right: auto;
+    @include g.mq(lg){
+      height: 4.8rem;
+    }
+    a{
+      transition: opacity 0.5s;
+      &:hover{
+        opacity: 0.5;
+      }
+      img{
+        height: 100%;
+        width: auto;
+      }
+    }
+  }
+  &PcMenuList{
+    display: none;
+    @include g.mq(lg){
+      display:flex;
+      margin-left: auto;
+      column-gap: 2.4rem;
+    }
+    &_item{
+      @include g.mq(lg){
+        a{
+          color:#d5546a;
+          font-size: 1.6rem
+        }
+      }
+    }
+    &_contact {
+      display: none;
+      @include g.mq(lg){
+        display:inline-block;
+        margin-left: 2.4rem;
+      }
+      a {
+        transition: opacity .3s;
+        img{
+          width: 24rem
+        }
+        &:hover {
+          opacity: .5;
+        }
+        &._hide{
+          transform: translateY(-100%);
+        }
+      }
+    }
+  }
+  &_button{
+    position: relative;
+    display: inline-block;
+    width: 6rem;
+    height: 100%;
+    margin-left: auto;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+    @include g.mq(lg){
+      display: none;
+    }
+    span{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: inline-block;
+      width: 2.4rem;
+      height: 0.2rem;
+      border-radius: 100vh;
+      background-color: g.$colorMain;
+      transition: transform 0.3s ease, top 0.3s ease, left 0.3s ease, opacity 0.3s ease;
+      @include g.mq(lg){
+        width: 4rem;
+        height: 0.4rem;
+      }
+      &:nth-of-type(1){
+        top: calc(50% - 0.4rem);
+        @include g.mq(lg){
+          top: calc(50% - 0.6rem);
+        }
+      }
+      &:nth-of-type(2){
+        top: calc(50% + 0.4rem);
+        @include g.mq(lg){
+          top: calc(50% + 0.6rem);
+        }
+      }
+    }
+    &[aria-expanded='true'] span{
+      &:nth-of-type(1){
+        top: 50%;
+        transform:translateX(-50%) rotate(40deg);
+      }
+      &:nth-of-type(2){
+        top: 50%;
+        transform:translateX(-50%) rotate(-40deg);
+      }
+    }
+  }
+  &Menu{
+    display: none;
+    overflow: scroll;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-height: 100%;
+    padding-top: 6rem;
+    background-color: g.$colorMain;
+    @include g.mq(lg){
+      overflow: hidden;
+      padding-top: calc(8rem + 6.4rem);
+      padding-bottom: 8rem;
+    }
+    &_logo{
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 2rem;
+      @include g.mq(lg){
+        width: 40rem;
+        margin-right: 4rem;
+      }
+    }
+    &_sns{
+        display: flex;
+        justify-content: center;
+        column-gap: 2rem;
+        @include g.mq(lg){
+          display: inline-block;
+        }
+      a{
+        display: inline-block;
+        width: 2.8rem;
+        @include g.mq(lg){
+          width: 8rem;
+          margin-right: 2rem;
+        }
+      }
+    }
+    &List{
+      $this: &;
+      @include g.mq(lg){
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        column-gap: 12rem;
+      }
+      &_item{
+        &:last-of-type{
+          #{$this}_title{
+            border-bottom: none;
+            @include g.mq(lg){
+              border-bottom: solid 0.2rem g.$colorWhite;
+            }
+          }
+        }
+      }
+      &_title{
+        position: relative;
+        border-bottom: solid 0.2rem g.$colorWhite;
+        padding: 2rem 0;
+        color: g.$colorWhite;
+        font-size: 2.2rem;
+        &::before{
+          content: "";
+          display: inline-block;
+          position: absolute;
+          top: calc(50% - 0.8rem);
+          right: 0;
+          transform: translateX(-50%);
+          width: 2.3rem;//画像の横幅
+          height: 1.3rem;//画像の縦幅
+          background-image: url(../image/common/menu_arrow.svg);
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+          pointer-events: none;
+          transition: transform 0.3s;
+          @include g.mq(lg){
+            display: none;
+          }
+        }
+        &.close{
+          &::before{
+            transform: translateX(-50%) rotate(-180deg);
+          }
+        }
+      }
+      ul.menu{
+        display: none;
+        @include g.mq(lg){
+          display: block;
+        }
+        li.menu-item{
+          a{
+            display: inline-block;
+            width: 100%;
+            padding: 1.6rem 1.5rem 1.6rem 1.5rem;  
+            border-bottom: solid 0.1rem g.$colorWhite;
+            color: g.$colorWhite;
+            font-size: 1.6rem;
+          }
+          &:last-of-type{
+            margin-bottom: 2.4rem;
+            @include g.mq(lg){
+               margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+    &.is-open{
+      display: block;
+    }
+  }    
+} 

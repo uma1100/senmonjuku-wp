@@ -1,0 +1,123 @@
+@use "../../global" as g;
+.p_company{
+    padding-bottom: 6rem;
+    @include g.mq(lg){
+        padding-bottom: 22rem;
+    }
+    &Plofile{
+        margin-bottom: 6rem;
+        @include g.mq(lg){
+            margin-bottom: 13rem;
+        }
+        &List{
+            $this: &;
+            &_item{
+                display: grid;
+                grid-template-columns: auto 1fr;
+                @include g.mq(lg){
+                    column-gap: 6.6rem;
+                }
+                &:first-of-type{
+                    #{$this}_title{
+                        border-top: solid 1px #000000;
+                    }
+                    #{$this}_detail{
+                        border-top: solid 1px #CECECE;
+                    }
+                }
+            }
+            &_title{
+                width: calc(7em + 7 * 0.12em);
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+                border-bottom: solid 1px #000000;
+                font-size: 1.3rem;
+                text-align: center;
+                letter-spacing: 0.12em;
+                @include g.mq(lg){
+                    width: 42.4rem;
+                    padding-top: 3.2rem;
+                    padding-bottom: 3.2rem;
+                    font-size: 2rem;
+                }
+            }
+            &_detail{
+                padding: 2rem 1.2rem;
+                border-bottom: solid 1px #CECECE;
+                font-size: 1.3rem;
+                letter-spacing: 0.12em;
+                font-weight: 500;
+                @include g.mq(lg){
+                    padding: 3.2rem 16.5rem;
+                    font-size: 2rem;
+                }
+                span{
+                    display: inline-block;
+                }
+                ._small{
+                    @include g.mq(lg){
+                        margin-left: 1.2rem;
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+    }
+    &Message{
+        &_inner{
+            grid-template-columns: 1fr;
+            @include g.mq(lg){
+               grid-template-columns: auto 1fr;
+               grid-template-rows: auto 1fr;
+               column-gap: 9.4rem;
+            }
+        }
+        .e_heading{
+            margin-bottom: 2.3rem;
+            @include g.mq(lg){
+                grid-column: 2/3;
+                grid-row: 1/2;
+                margin-bottom: 2.8rem;
+            }
+        }
+        &_text{
+            grid-row: 3/4;
+            font-size: 1.5rem;
+            line-height: 1.8em;
+            font-weight: 500;
+            @include g.mq(lg){
+                grid-column: 2/3;
+                grid-row: 2/3;
+                height: 100%;
+                font-size: 2rem;
+                line-height: 2.15em;
+            }
+        }
+        &_name{
+            display: block;
+            margin-top: 2rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-align: right;
+            @include g.mq(lg){
+                font-size: 3rem;
+            }
+        }
+        &_image{
+            grid-row: 2/3;
+            margin-bottom: 1.8rem;
+            @include g.mq(lg){
+               grid-row: 1/3; 
+               margin-bottom: 0;
+               width: 74.5rem;
+            }
+            img{
+                border-radius: 1rem;
+                @include g.mq(lg){
+                    border-radius: 2rem;
+                }
+            }
+        }
+        
+    }
+}

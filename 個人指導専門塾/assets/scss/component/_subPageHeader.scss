@@ -1,0 +1,44 @@
+@use "../global/" as g;
+/* subPageHeader */
+.c_subPageHeader{
+  position: relative;
+  margin-top: 6rem;
+  margin-bottom: 3.6rem;
+  height: 28rem;
+  @include g.mq(lg){
+    height: 48rem;
+    margin-top: 10rem;
+    margin-bottom: 8rem;
+  }
+  &._mb-none{
+    margin-bottom: 0;
+  }
+  .e_heading{
+    display: inline-block;
+    position: absolute;
+    bottom: 3rem;
+    left: 0;
+    padding: 1.6rem 1.6rem 1.6rem 3rem;
+    border-radius: 0 1.2rem 1.2rem 0;
+    background-color: g.$colorMain;
+    @include g.mq(lg){
+      bottom: 6rem;
+      padding: 2rem 4.8rem 3.6rem 20rem;
+      border-radius: 0 2rem 2rem 0;
+    }
+  }
+  &_bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}

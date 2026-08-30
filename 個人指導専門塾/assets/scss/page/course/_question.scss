@@ -1,0 +1,173 @@
+@use "../../global" as g;
+.p_question{
+    $this: &;
+    padding-top: 3.6rem;
+    padding-bottom: 2.4rem;
+    background-color: var(--bgColor);
+    background-image:
+        radial-gradient(var(--dotColor) 20%, transparent 20%),
+        radial-gradient(var(--dotColor)20%, transparent 20%);
+    background-size: 8rem 8rem;
+    background-position: 0 0, 4rem 4rem;
+    @include g.mq(lg){
+        padding-top: 80px;
+        padding-bottom: 0;
+    }
+    h2{
+        font-size: 2rem;
+        line-height: 2.3em;
+        text-align: center;
+        @include g.mq(lg){
+            margin-bottom: 60px;
+            font-size: 36px;
+            line-height: 1;
+        }
+        span.dot{
+            background-image: radial-gradient(circle at center, var(--mainColor) 20%, transparent 20%); /* 点の色とサイズ調整 */
+            background-position: top right; /* 点の位置 */
+            background-repeat: repeat-x; /* 横方向に繰り返し */
+            background-size: 1em 0.3em; /* 点の間隔とサイズ調整 */
+            padding-top: 1rem; /* 縦方向の位置調整 */
+            font-size: 2.6rem;
+            @include g.mq(lg){
+                font-size: 48px;
+            }
+        }
+        br{
+            @include g.mq(lg){
+                display: none;
+            }
+        }
+    }
+    &List{
+        $this: &;
+        position: relative;
+        height: 50rem;
+        @include g.mq(lg){
+            width: 980px;
+            margin: 0 auto;
+            height: 640px;
+        }
+        &_item{
+            position: absolute;
+            display: inline-block;
+            p{
+                position: absolute;
+                top: calc(50% - 0.6rem);
+                left: 50%;
+                transform: translate(-50%,-50%);
+                display: inline-block;
+                width: 100%;
+                font-size: 1.2rem;
+                line-height: 1.4em;
+                text-align: center;
+                @include g.mq(lg){
+                    font-size: 18px;
+                    line-height: 1.6em;
+                }
+            }
+            &:nth-of-type(1){
+                top: 0;
+                left: 0;
+                @include g.mq(lg){
+                    left: -31px;
+                }
+                #{$this}_bg{
+                    svg{
+                        width: 20rem;
+                        height: 18rem;
+                        @include g.mq(lg){
+                            width: 400px;
+                            height: 320px;
+                        }
+                    }
+                }
+            }
+            &:nth-of-type(2){
+                top: 5.5rem;
+                right: 0;
+                @include g.mq(lg){
+                    top: -35px;
+                    right: 282px;
+                }
+                #{$this}_bg{
+                    margin-left: auto;
+                    svg{
+                        width: 19.8rem;
+                        height: 15.5rem;
+                        @include g.mq(lg){
+                            width: 396px;
+                            height: 310px;
+                        }
+                    }
+                }
+            }
+            &:nth-of-type(3){
+                top: 15.5rem;
+                left: 0.6rem;
+                @include g.mq(lg){
+                    top: 245px;
+                    left: 106px;
+                }
+                #{$this}_bg{
+                    svg{
+                        width: 19.1rem;
+                        height: 16.7rem;
+                        @include g.mq(lg){
+                            width: 382px;
+                            height: 334px;
+                        }
+                    }
+                }
+            }
+            &:nth-of-type(4){
+                top: 20.5rem;
+                right: 1.2rem;
+                @include g.mq(lg){
+                    top: 95px;
+                    right: -8px;
+                }
+                #{$this}_bg{
+                    svg{
+                        width: 18rem;
+                        height: 14.3rem;
+                        @include g.mq(lg){
+                            width: 360px;
+                            height: 286px;
+                        }
+                    }
+                }
+            }
+            &:nth-of-type(5){
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                @include g.mq(lg){
+                    top: 330px;
+                    bottom: auto;
+                    left: 470px;
+                    transform: translateX(0);
+                }
+                #{$this}_bg{
+                    svg{
+                        width: 21.4rem;
+                        height: 16.9rem;
+                        @include g.mq(lg){
+                            width: 330px;
+                            height: 260px;
+                        }
+                    }
+                }
+            }
+        }
+        &_bg{
+            display: inline-block;
+            svg{
+                display: inline-block;
+                path.outline{
+                    fill: var(--mainColor);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8">
+  <g id="select_arrow_pink" transform="translate(1353 -265) rotate(90)">
+    <path id="線_13" data-name="線 13" d="M6,7a1,1,0,0,1-.707-.293l-6-6a1,1,0,0,1,0-1.414,1,1,0,0,1,1.414,0l6,6A1,1,0,0,1,6,7Z" transform="translate(266 1340)" fill="#d5546a"/>
+    <path id="線_14" data-name="線 14" d="M0,7a1,1,0,0,1-.707-.293,1,1,0,0,1,0-1.414l6-6a1,1,0,0,1,1.414,0,1,1,0,0,1,0,1.414l-6,6A1,1,0,0,1,0,7Z" transform="translate(266 1346)" fill="#d5546a"/>
+  </g>
+</svg>

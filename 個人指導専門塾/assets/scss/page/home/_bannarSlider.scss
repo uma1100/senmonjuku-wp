@@ -1,0 +1,95 @@
+@use "../../global" as g;
+.p_bannerSlider{
+    &_inner{
+        display: grid;
+        row-gap: 2.4rem;
+        @include g.mq(lg){
+            grid-template-columns: repeat(2,1fr);
+            row-gap: 0;
+            column-gap: 3.6rem;
+        }
+    }
+    .swiper-slide{
+        width: 31.5rem;//スライダー用
+        height: 100%;
+        padding: 0 0.6rem;//スライダー用
+        @include g.mq(lg){
+            width: 96rem;//スライダー用
+            padding: 0 2.7rem;//スライダー用
+        }
+        a{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4.4rem;
+        height: 4.4rem;
+        margin-top: 0;
+        border-radius: 50%;
+        background-color: rgba(25,15,16,0.4);
+        @include g.mq(lg){
+            width: 7rem;
+            height: 7rem;
+        }
+    }
+    .swiper-button-prev,
+    .swiper-rtl .swiper-button-next {
+        left: 1.5rem;
+        right: auto;
+        @include g.mq(lg){
+            left: 4.5rem;
+        }
+    }
+    .swiper-button-next,
+    .swiper-rtl .swiper-button-prev {
+        right: 1.5rem;
+        left: auto;
+        @include g.mq(lg){
+            right: 4.5rem;
+        }
+    }
+    .swiper-button-prev:after,
+    .swiper-rtl .swiper-button-next:after,
+    .swiper-button-next:after,
+    .swiper-rtl .swiper-button-prev:after {
+        content: "";
+        display: inline-block;
+        width: 0.6rem;//画像の横幅
+        height: 1rem;//画像の縦幅
+        background-image: url(../../../image/home/campaign_slider_arrow.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        @include g.mq(lg){
+            width: 1.2rem;
+            height: 2.2rem;
+        }
+    }
+    .swiper-button-next:after,
+    .swiper-rtl .swiper-button-prev:after{
+        transform: rotate(180deg);
+    }
+    .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
+    .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
+        margin: 0 0.6rem;
+        @include g.mq(lg){
+            margin: 0 0.8rem;
+        }
+    }
+    .swiper-pagination-bullet{
+        width: 1.2rem;
+        height: 1.2rem;
+        @include g.mq(lg){
+            width: 1.6rem;
+            height: 1.6rem;
+        }
+    }
+    .swiper-pagination-bullet-active{
+        background-color: g.$colorMain;
+    }
+}

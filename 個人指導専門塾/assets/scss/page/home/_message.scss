@@ -1,0 +1,64 @@
+@use "../../global" as g;
+.p_message{
+    position: relative;
+    z-index: 1;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background-image: url(../../../image/home/sm_message_bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include g.mq(lg){
+        padding-top: 12rem;
+        padding-bottom: 12rem;
+        background-image: url(../../../image/home/xl_message_bg.jpg);
+    }
+    &::before{
+        content: "";
+        display: inline-block;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.65);
+    }
+    &_catchCopy{
+        margin-bottom: 1.2rem;
+        color: g.$colorWhite;
+        font-size: 24px;
+        line-height: 1.6em;
+        @include g.mq(lg){
+            margin-bottom: 2rem;
+            font-size: 6rem;
+            line-height: 2;
+        }
+        span{
+            display: inline-block;
+            margin-right: 0.6rem;
+            padding-right: 1.2rem;
+            padding-bottom: 0.3rem;
+            padding-left: 1.2rem;
+            border-radius: 0.4rem;
+            background-color: #df7196;
+            @include g.mq(lg){
+                margin-right: 1rem;
+                padding-right: 3.4rem;
+                padding-bottom: 0.8rem;
+                padding-left: 3.4rem; 
+            }
+        }
+    }
+    &_text{
+        margin-bottom: 3.6rem;
+        color: g.$colorWhite;
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 2em;
+        @include g.mq(lg){
+            margin-bottom: 6rem;
+            font-size: 2.6rem;
+        }
+    }
+}

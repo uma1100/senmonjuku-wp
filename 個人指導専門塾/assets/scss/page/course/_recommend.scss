@@ -1,0 +1,63 @@
+@use "../../global" as g;
+.p_recommend{
+    $this: &;
+    margin-bottom: 3.6rem;
+    padding-bottom: 1.2rem;
+    background-color: var(--mainColor);
+    @include g.mq(lg){
+        margin-bottom: 0;
+    }
+    h2{
+        position: relative;
+        margin-bottom: calc(4rem + 4.8rem);//before分とmargin分
+        padding-top: 3.6rem;
+        padding-bottom: 2rem;
+        background-color: g.$colorWhite;
+        color: var(--mainColor);
+        font-size: 2rem;
+        line-height: 1.7em;
+        text-align: center;
+        @include g.mq(lg){
+            margin-bottom: calc(60px + 60px);//before分とmargin分
+            padding-top: 60px;
+            font-size: 28px;
+        }
+        &::before{
+            content: "";
+            display: inline-block;
+            position: absolute;
+            bottom: 0.1rem;
+            left: 0;
+            transform: translateY(100%);
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-right: calc(var(--vw, 1vw) * 50) solid transparent;
+            border-left: calc(var(--vw, 1vw) * 50) solid transparent;
+            border-top: 4rem solid g.$colorWhite;
+            border-bottom: 0;
+            @include g.mq(lg){
+                border-right: calc(var(--vw,1vw)*50) solid transparent;
+                border-left: calc(var(--vw,1vw)*50) solid transparent;
+                border-top: 60px solid #fff;
+            }  
+        }
+    }
+    p{  
+        margin-bottom: 2.4rem;
+        color: g.$colorWhite;
+        font-size: 1.6rem;
+        line-height: 2em;
+        text-align: center;
+        @include g.mq(lg){
+            font-size: 28px;
+            line-height: 2em;
+        }
+        &:last-of-type{
+            margin-bottom: 0;
+        }
+    }
+    .p_cta{
+        transform: translateY(calc(50% + 12px));
+    }
+}

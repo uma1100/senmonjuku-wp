@@ -1,0 +1,190 @@
+@use "../global/" as g;
+/* single */
+.c_single{
+  margin-top: 6rem;
+  padding-bottom: 6rem;
+  @include g.mq(lg){
+    margin-top: 10rem;
+    padding-bottom: 12rem;
+  }
+  .c_breadcrumbsList{
+    margin-bottom: 3.6rem;
+    @include g.mq(lg){
+      margin-bottom: 12rem;
+    }
+  }
+  &Content{
+    padding-bottom: 4.2rem;
+    @include g.mq(lg){
+      padding-bottom: 12rem;
+    }
+    &:last-child{
+      padding-bottom: 0;
+    }
+    &_header{
+      grid-template-columns: 1fr;
+      margin-bottom: 2.4rem;
+      @include g.mq(lg){
+        margin-bottom: 6rem;
+      }
+    }
+    &_title{
+      grid-row: 2/3;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      line-height: 1.4em;
+      @include g.mq(lg){
+        font-size: 4rem;
+        margin-bottom: 2rem;
+      }
+    }
+    &_date{
+      grid-row: 3/4;
+      margin-bottom: 1.2rem;
+      color: #8E8E8E;
+      font-size: 1.6rem;
+      font-family: g.$font-en;
+      line-height: 1;
+      @include g.mq(lg){
+        font-size: 2.4rem;
+        margin-bottom: 2rem;
+      }
+    }
+    .c_categoryList{
+      grid-row: 4/5;
+    }
+    &_thumbnail{
+      overflow: hidden;
+      grid-row: 1/2;
+      margin-bottom: 1rem;
+      border-radius: 1.2rem;
+      @include g.mq(lg){
+        margin-bottom: 3.2rem;
+        border-radius: 2.4rem;
+      }
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        aspect-ratio: 16 / 9;
+      }
+    }
+    &_main{
+      p{
+        margin-bottom: 1.8rem;
+        font-size: 1.4rem;
+        font-weight: 600;
+        line-height: 1.8em;
+        @include g.mq(lg){
+          margin-bottom: 3.2rem;
+          font-size: 2.2rem;
+        }
+      }
+      h2,
+      h3,
+      h4{
+        font-weight: 700;
+        line-height: 1.4em;
+      }
+      h2{
+        margin-top: 2.8rem;
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background-color: g.$colorMain;
+        border-radius: 0.6rem;
+        color: g.$colorWhite;
+        font-size: 1.6rem;
+        @include g.mq(lg){
+          margin-top: 4.6rem;
+          margin-bottom: 3.8rem;
+          padding: 2.4rem;
+          font-size: 3.6rem;
+        }
+      }
+      h3{
+        position: relative;
+        margin-top: 2.8rem;
+        margin-bottom: 2rem;
+        padding-left: 2.1rem;
+        color: g.$colorMain;
+        font-size: 1.6rem;
+        @include g.mq(lg){
+          margin-top: 4.4rem;
+          margin-bottom: 3.6rem;
+          font-size: 3.2rem;
+        }
+        &::before{
+          content: "";
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0.6rem;
+          height: 100%;
+          border-radius: 0.3rem;
+          background-color: g.$colorMain;
+        }
+      }
+      ul,
+      ul li{
+        list-style: disc;
+      }
+      ol,
+      ol li{
+        list-style-type: decimal;
+      }
+      ul,
+      ol{
+        padding-left: 2em;
+        margin-bottom: 2rem;
+      }
+      li{
+        margin-bottom: 0.5em;
+        font-size: 1.4rem;
+        font-weight: 600;
+        line-height: 1.6em;
+        @include g.mq(lg){
+          margin-bottom: 1.6rem;
+          font-size: 2.2rem;
+        }
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
+      a{
+        color: #5486D5;
+        text-decoration: underline;
+      }
+      a[href^="http"]::after,
+      a[href^="//"]::after{
+        content: "";
+        display: inline-block;
+        width: 1.2rem;
+        height: 1.2rem;
+        margin-bottom: -0.1rem;
+        margin-left: 0.4rem;
+        margin-right: 0.4rem;
+        background-image: url(../image/common/link_icon.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        @include g.mq(lg){
+          width: 2rem;
+          height: 2rem;
+          margin-left: 0.8rem;
+          margin-right: 0.8rem;
+        }
+      }
+      iframe{
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 16 / 9;
+      }
+      img{
+        width: auto;
+        max-width: 100%;
+      }
+    }
+  }
+}

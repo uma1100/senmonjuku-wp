@@ -1,0 +1,53 @@
+@use "../global/" as g;
+/* pageNavi */
+.c_dataList{
+  $this: &;
+  &_item{
+    display: flex;
+    column-gap: 1.2rem;
+    padding-top: 1.8rem;
+    padding-bottom: 1.8rem;
+    font-size: 1.4rem;
+    line-height: 1.6em;
+    border-bottom: solid 0.2rem g.$colorMain;
+    @include g.mq(lg){
+      font-size: 1.8rem;
+      padding-top: 3.2rem;
+      padding-bottom: 3.2rem;
+    }
+    &:first-of-type{
+      padding-top: 0;
+    }
+    dt{
+      width: 6em;
+      @include g.mq(lg){
+        width: 24rem;
+      }
+    }
+    dd{
+      flex: 1;
+      font-weight: 600;
+      a{
+        text-decoration: underline;
+      }
+    }
+  }
+  &._column{
+    #{$this}_item{
+      flex-direction: column;
+      dt{
+        width: 100%;
+        margin-bottom: 0.4rem;
+      }
+    }
+  }
+  &._white{
+    #{$this}_item{
+      border-bottom: solid 0.2rem g.$colorWhite;
+      dt,
+      dd{
+       color: g.$colorWhite;
+      }
+    }
+  }
+}

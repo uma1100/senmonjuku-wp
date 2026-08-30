@@ -1,0 +1,73 @@
+@use "../global/" as g;
+/* contactList */
+.c_contactList{
+    $this: &;
+    flex-direction: column;
+    row-gap: 1.2rem;
+    @include g.mq(lg){
+        flex-direction: row;
+        row-gap: 0;
+        column-gap: 4rem;
+    }
+    &_item{
+        overflow: hidden;
+        height: 11rem;
+        border-radius: 1.2rem;
+        box-shadow: 0 0.3rem 0.6rem rgba(0,0,0,0.16);
+        background-color: g.$colorWhite;
+        @include g.mq(lg){
+            width: 40rem;
+        }
+        &._form{
+            #{$this}_icon{
+                margin-bottom: 1.2rem;
+                img{
+                    height: 3rem;
+                }
+            }
+            #{$this}_text{
+                font-size: 1.6rem;
+                line-height: 1;
+                &._pink{
+                    color:g.$colorMain;
+                }
+            }
+        }
+        &._tel{
+            #{$this}_icon{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                column-gap: 0.6rem;
+                width: 100%;
+                margin-bottom: 1.2rem;
+                p{
+                    font-size: 2.8rem;
+                    font-family: g.$font-en;
+                    &._pink{
+                        color:g.$colorMain;
+                    }
+                }
+                img{
+                    width: auto;
+                    height: 2.2rem;
+                }
+            }
+            #{$this}_text{
+                font-size: 1.2rem;
+                line-height: 1;
+                &._pink{
+                    color:g.$colorMain;
+                }
+            }
+        }
+        a{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            color: g.$colorBlack;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+@use "../setting" as s;
+@mixin font-jp {
+  font-family: s.$font-jp;
+  line-height: 1.6rem;
+}
+
+@mixin font-jp-12 {
+  font-size: 1.2rem;
+  font-family: s.$font-jp;
+  line-height: 1.6rem;
+}
+
+@mixin font-jp-14 {
+  font-size: 1.4rem;
+  font-family: s.$font-jp;
+  line-height: 1.6rem;
+}
+
+@mixin font-en {
+  font-family: s.$font-en;
+  font-weight: 700;
+}

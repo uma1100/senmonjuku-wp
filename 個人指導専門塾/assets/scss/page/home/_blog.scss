@@ -1,0 +1,9 @@
+@use "../../global" as g;
+.p_blog{
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    @include g.mq(lg){
+        padding-top: 12rem;
+        padding-bottom: 12rem;
+    }
+}

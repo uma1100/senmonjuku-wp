@@ -1,0 +1,9 @@
+@use "../../global" as g;
+.p_news{
+    padding-top: 2.8rem;
+    padding-bottom: 6rem;
+    @include g.mq(lg){
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+    }
+}

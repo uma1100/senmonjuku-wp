@@ -1,0 +1,59 @@
+@use "../../global" as g;
+.p_cta{
+    width: 100%;
+    text-align: center;
+    @include g.mq(lg){
+        width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    a{
+        display: inline-block;
+        position: relative;
+        max-width: calc((var(--vw, 1vw) * 100) - 3rem);
+        width: 100%;
+        height: 7.2rem;
+        border-radius: 100vh;
+        background-color: var(--mainColor);
+        box-shadow: 0 0.3rem 0.6rem rgba(0,0,0,0.16);
+        color: g.$colorWhite;
+        font-size: 1.4rem;
+        line-height: 7.2rem;
+        @include g.mq(lg){
+            height: 80px;
+            font-size: 20px;
+            line-height: 80px;
+        }
+        &::before{
+            content: "";
+            display: inline-block;
+            position: absolute;
+            top: 0.3rem;
+            left: 0.3rem;
+            width: calc(100% - 0.6rem);
+            height: calc(100% - 0.6rem);
+            border: solid 0.3rem g.$colorWhite;
+            border-radius: 100vh;
+            @include g.mq(lg){
+                top: 6px;
+                left: 6px;
+                width: calc(100% - 12px);
+                height: calc(100% - 12px);
+                border: solid 2px g.$colorWhite;
+            }
+        }
+    }
+    &._white{
+        a{
+            background-color: g.$colorWhite;
+            color: var(--mainColor);
+            &::before{
+                content: "";
+                border: solid 0.3rem var(--mainColor);
+                @include g.mq(lg){
+                    border: solid 2px var(--mainColor);
+                }
+            }
+        }
+    }
+}

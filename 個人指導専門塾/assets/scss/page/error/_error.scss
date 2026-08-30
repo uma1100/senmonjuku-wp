@@ -1,0 +1,18 @@
+@use "../../global" as g;
+.p_error{
+    margin-top: 6rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    @include g.mq(lg){
+        margin-top: 10rem;
+        padding-top: 12rem;
+        padding-bottom: 12rem;
+    }
+    &_heading{
+        margin-bottom: 1.2rem;
+        font-size: 2.4rem;
+    }
+    &_message{
+        font-size: 1.6rem;
+    }
+}

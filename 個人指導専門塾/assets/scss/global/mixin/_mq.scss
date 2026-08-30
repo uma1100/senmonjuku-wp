@@ -1,0 +1,6 @@
+@use "../setting/" as s;
+@mixin mq($breakpoint: sm) {
+  @media #{map-get(s.$breakpoints, $breakpoint)} {
+    @content;
+  }
+}

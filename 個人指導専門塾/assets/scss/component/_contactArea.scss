@@ -1,0 +1,41 @@
+@use "../global/" as g;
+/* ContactArea */
+.c_contactArea{
+  width: calc(var(--vw, 1vw) * 100);
+  background-color: g.$colorGray;
+  a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5.2rem 2rem;
+    @include g.mq(lg){
+      padding: 13.5rem 12rem;
+    }
+  }
+  &_heading{
+    position: relative;
+    color: g.$colorBlack;
+    font-size: 1.9rem;
+    line-height: 1;
+    @include g.mq(lg){
+      font-size: 6.2rem;
+    }
+    &::before{
+      content: attr(data-en);
+      display: block;
+      margin-bottom: 1.2rem;
+      font-size: 4.3rem;
+      @include g.font-en;
+      @include g.mq(lg){
+        margin-bottom: 2.4rem;
+        font-size: 13.4rem;
+      }
+    }
+  }
+  &_arrow{
+    width: 9.5rem;
+    @include g.mq(lg){
+      width: 34.6rem;
+    }
+  }
+}
