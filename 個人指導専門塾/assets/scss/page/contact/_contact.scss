@@ -62,18 +62,24 @@
             @include g.mq(lg){
                 row-gap: 3.6rem;
             }
-            // 【確認用】項目を絞ったシンプル版レイアウト。PCのみ2カラムグリッド化する
-            &._simple{
+        }
+        // 【確認用】_renewal配下のみ、PCで2カラムグリッド化する。
+        // MW WP Formが自動生成するHTMLには専用クラスが付けられないため、
+        // textarea・checkbox・submitを含む項目は :has() で自動判定して全幅にする
+        // (対応ブラウザが無い場合の保険として、明示的に付けた ._full クラスにも対応)。
+        .p_contact._renewal &_content{
+            @include g.mq(lg){
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: 3.2rem;
+                row-gap: 3.6rem;
+            }
+            .p_contactForm_item._full,
+            .p_contactForm_item:has(textarea),
+            .p_contactForm_item:has(input[type="checkbox"]),
+            .p_contactForm_item:has(input[type="submit"]){
                 @include g.mq(lg){
-                    display: grid;
-                    grid-template-columns: repeat(2, 1fr);
-                    column-gap: 3.2rem;
-                    row-gap: 3.6rem;
-                }
-                .p_contactForm_item._full{
-                    @include g.mq(lg){
-                        grid-column: 1 / -1;
-                    }
+                    grid-column: 1 / -1;
                 }
             }
         }
