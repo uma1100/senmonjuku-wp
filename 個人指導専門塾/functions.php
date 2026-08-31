@@ -37,7 +37,8 @@ function add_styles() {
 			"templates/contact.php",
 			"templates/contact-compleat.php",
 			"templates/contact-confirm.php",
-			"templates/contact-no-header.php"
+			"templates/contact-no-header.php",
+			"templates/contact-draft.php"
 			)
 		)){
 		wp_enqueue_style('contact_style', $css_page_directory. 'contact/' . 'index.css', "", $css_version);
