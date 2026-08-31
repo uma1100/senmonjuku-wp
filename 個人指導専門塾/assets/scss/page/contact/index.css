@@ -214,6 +214,9 @@
 .p_contactForm_input._checkbox .mw_wp_form .vertical-item + .vertical-item {
   margin-top: 1rem;
 }
+.p_contactForm_input._checkbox .horizontal-item {
+  margin-left: 10px;
+}
 .p_contactForm_input._checkbox label {
   display: flex;
   align-items: flex-start;

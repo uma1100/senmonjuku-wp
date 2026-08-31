@@ -202,6 +202,12 @@
                 .mw_wp_form .vertical-item+.vertical-item{
                     margin-top: 1rem;
                 }
+                // MW WP Form本体のCSSが .horizontal-item+.horizontal-item にだけ
+                // margin-left:10pxを付けてくるため、最初の項目だけ左に寄って見える。
+                // 全項目に同じmargin-leftを付けて揃える。
+                .horizontal-item{
+                    margin-left: 10px;
+                }
                 label{
                     display: flex;
                     align-items: flex-start;
