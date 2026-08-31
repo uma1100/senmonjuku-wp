@@ -192,10 +192,14 @@
                 }
             }
             &._checkbox{
-                display: flex;
-                flex-wrap: wrap;
-                column-gap: 2.4rem;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: 1.6rem;
                 row-gap: 1.2rem;
+                @include g.mq(lg){
+                    grid-template-columns: repeat(4, auto);
+                    column-gap: 2.4rem;
+                }
                 .mw_wp_form .vertical-item+.vertical-item{
                     margin-top: 1rem;
                 }
